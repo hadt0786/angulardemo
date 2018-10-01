@@ -4,7 +4,7 @@
         -- CLI -  `ng g c pass-value-from-component-to-view`
         -- Create values to pass them
             src/app/pass-value-from-component-to-view.ts
-            
+   ```         
   export class PassValuesFromComponentToViewComponent implements OnInit {
 
   age:number;
@@ -23,21 +23,22 @@
   }
 
 }
+```
 
 2 : ** Create View **
       --  src/app/pass-value-from-component-to-view.html
-
+```
           Age :{{age}}
           <br> Full name :{{fullName}}
           <br> status :{{status}}
           <br> Email : {{email}}
-
+```
 
 3 : **Add a new compinetn to **Module****
 
     -- `src/app/app.module.ts`
 
-      - 
+```      
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -56,7 +57,7 @@ import { PassValuesFromComponentToViewComponent } from './pass-values-from-compo
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
+```
 ##Incluse the Selector tag into the root html
 
 4 :  `src/app/app/component.html`

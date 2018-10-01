@@ -9,7 +9,7 @@
 #### Create an **ENTITY**
 
   1.  -- create new folder named **entity** in **src/app/entity**. In this folder create an new file, named **product.entity.ts** or `ng g class entity/product`
-
+```
   export class Product{
     id:string;
     name:dtring;
@@ -17,13 +17,13 @@
     price:number;
     quatity:number;
   }
-
+```
 #### Create a Component
 
 1. -- `src/app/pass-object-from-component-to-view` using cli `ng g c pass-object-from-component-to-view`
     - `src/app/pass-object-from-component-to-view/PassObjectFromComponentToViewComponent.ts` 
         - create a **product object** to pass view
-  `
+ ```
   import { Product } from './../entity/product.entity';
 
   export class PassObjectFromComponentToViewComponent implements OnInit {
@@ -44,12 +44,12 @@
   }
 
 }
- `
+ ```
 #### Create a View
 
 1. - `src/app/pass-object-from-component-to-view/PassObjectFromComponentToViewComponent.html` . In this view , show product object from component
   
-`
+```
 <h3> Product info</h3>
 
 <table border="1">
@@ -79,17 +79,17 @@
     <td>{{product.price}}*{{product.quantity}}</td>
     </tr>
 </table>
-`
+```
 
 #### Add component tag to app.module.ts
 
 1.  
-  `
+  ```
   import {PassObjectFromComponentToViewComponent} from './../pass-object-from-component-to-view';
   
   declaration :[PassObjectFromComponentToViewComponent]
 
-  `
+  ```
 #### Add selector tag to app.module.html
 
 1.  `src/app/pass-object-from-component-to-view` copy selector tag 'app-pass-object-from-component-to-view'

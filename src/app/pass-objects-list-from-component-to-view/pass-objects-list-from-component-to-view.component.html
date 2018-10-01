@@ -1,3 +1,31 @@
 <p>
   pass-objects-list-from-component-to-view works!
 </p>
+
+<h3>Product List</h3>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Photo</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>SubTotal</th>
+  </tr>
+
+  <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td><img src= "./../../assets/images/{{product.photo}}"></td>
+      <td>{{product.price}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.price}}*{{product.quantity}}</td>
+
+  </tr>
+
+<!-- may be throws an error because tr is not closed -->
+
+  <tr><br>
+
+</table>
