@@ -1,3 +1,31 @@
 <p>
   one-way-databinding works!
 </p>
+
+<form>
+
+  <!---  Error
+    [Angular] - Can't bind to 'ngModel' since it isn't a known property of 'input'
+    Source -
+    Solution
+
+++    Missing FormsModule, hence Add this to your Module,
+
+
+          import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+          @NgModule({
+            imports: [
+                FormsModule
+            ]
+++    Check the syntax/spelling of [(ngModel)] in the input tag
+
+
+-->
+
+  <input type="text" [ngModel]="result" [ngModelOptions]="{standalone: true}">
+  <br>
+  {{result}}
+
+
+</form>

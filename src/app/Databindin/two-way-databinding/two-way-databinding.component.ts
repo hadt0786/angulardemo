@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./two-way-databinding.component.css']
 })
 export class TwoWayDatabindingComponent implements OnInit {
-
-  constructor() { }
+  result: '';
+  constructor() {}
 
   ngOnInit() {
+    this.result = 'Two way binding';
   }
-
 }

@@ -1,5 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {
+  FormsModule,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule
+} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PassValuesFromComponentToViewComponent } from './pass-values-from-component-to-view/pass-values-from-component-to-view.component';
@@ -13,9 +19,12 @@ import { ChangeEventInAngularComponent } from './change-event-in-angular/change-
 // tslint:disable-next-line:max-line-length
 import { SelectElementFromListWithChangeEventComponent } from './select-element-from-list-with-change-event/select-element-from-list-with-change-event.component';
 import { SelectFileWithChangeEventComponent } from './select-file-with-change-event/select-file-with-change-event.component';
+// tslint:disable-next-line:max-line-length
 import { SelectMultipleFileWithChangeEventComponent } from './select-multiple-file-with-change-event/select-multiple-file-with-change-event.component';
 import { TwoWayDatabindingComponent } from './Databindin/two-way-databinding/two-way-databinding.component';
 import { OneWayDatabindingComponent } from './Databindin/one-way-databinding/one-way-databinding.component';
+import { FormsControlComponent } from './forms-control/forms-control.component';
+import { FormValidationComponent } from './form-validation/form-validation.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +41,18 @@ import { OneWayDatabindingComponent } from './Databindin/one-way-databinding/one
     SelectFileWithChangeEventComponent,
     SelectMultipleFileWithChangeEventComponent,
     TwoWayDatabindingComponent,
-    OneWayDatabindingComponent
+    OneWayDatabindingComponent,
+    FormsControlComponent,
+    FormValidationComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FormControl,
+    FormGroup
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

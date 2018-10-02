@@ -1,0 +1,138 @@
+<p>
+  forms-control works!
+</p>
+
+<h3>Register form</h3>
+<!--
+[Angular] No provider for ControlContainer
+[Angular] Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+Solution --
+In `src/app/app.module.ts`
+
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    ChartsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
+  ],
+
+ Please declare the ReactiveFormsModule as part of your testing module.
+
+beforeEach(() => {
+    TestBed.configureTestingModule({
+        imports: [ReactiveFormsModule],
+        declarations: [YourComponent, ...],
+        providers: [...]
+    });
+});
+
+
+-->
+
+
+<form [formGroup]="registerForm" (ngSubmit)="save()">
+
+  <table>
+    <tr>
+      <td>Username</td>
+      <td>
+        <input type="text" formControlName="username">
+
+      </td>
+
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>
+        <input type="password" formControlName="password">
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td valign="top">Description</td>
+      <td>
+
+        <textarea cols="20" rows="5" formControlName="description"></textarea>
+
+
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td valign="top">Gender</td>
+      <td>
+        <div *ngFor="let gender of genders">
+          <input type="radio" formControlName="gender" value={{gender.value}}>{{gender.display}}
+        </div>
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td valign="top">Status</td>
+      <td><input type="checkbox" formControlName="status" </td> </tr> <tr>
+      <td valign="top">Languages</td>
+      <td>
+        <div *ngFor="let language of languages">
+          <input type="checkbox" formControlName="languages" value={{language.value}} (change)="onCheckedboxChange(language.$event)">{{language.display}}
+        </div>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td valign="top">Role</td>
+      <td>
+
+        <select formControl="role">
+          <option *ngFor="let role of roles" value={{role.id}}>{{role.name}}</option>
+
+        </select>
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td valign="top">Certificates</td>
+      <td>
+
+        <select formControl="certifcates" multiple="multiple">
+          <option *ngFor="let certificate of certificates" value={{certificate.value}}>{{certificate.display}}</option>
+
+        </select>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>&nbsp</td>
+      <td>
+        <input type="submit" value="Save">
+      </td>
+
+
+    </tr>
+
+
+
+  </table>
+
+</form>
