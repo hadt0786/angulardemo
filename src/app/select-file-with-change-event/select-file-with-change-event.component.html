@@ -1,0 +1,9 @@
+<p>
+  select-file-with-change-event works!
+</p>
+
+<form>
+  <input type="file" (change)="save($event)">
+  <br>
+  <span [innerHTML]="result"></span>
+</form>

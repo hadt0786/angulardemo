@@ -41,6 +41,7 @@ In this component , contains **method bind** with **click** event form
    </form>
 
    ```
+   
 ## Add Component to Module
 
 1. In `app.module.ts` Add new component to module

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KeyUpEventInAngularComponent implements OnInit {
 
+  result = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  display(event: any): void {
+    this.result = 'hello' + event.target.value;
   }
 
 }

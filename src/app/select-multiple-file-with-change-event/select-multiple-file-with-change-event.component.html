@@ -1,0 +1,11 @@
+<p>
+  select-multiple-file-with-change-event works!
+</p>
+
+<form>
+
+  <input type="file" (change)="save($event)" multiple="multiple">
+
+  <br>
+  <span [innerHTML]="result"></span>
+</form>

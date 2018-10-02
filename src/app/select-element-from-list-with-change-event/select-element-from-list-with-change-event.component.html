@@ -1,0 +1,15 @@
+<p>
+  select-element-from-list-with-change-event works!
+</p>
+<form>
+
+  <select (change)="display($event)">
+
+    <option *ngFor="let categoryHtml of category" value="{{categoryHtml.id}}" > {{categoryHtml.name}}
+    </option>
+  </select>
+
+  <br>
+  <span [innerHTML]="result"></span>
+
+</form>

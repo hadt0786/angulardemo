@@ -1,3 +1,9 @@
 <p>
   key-up-event-in-angular works!
 </p>
+
+<form>
+  <input type="text" placeholder="Input your name" (keyup)="display($event)">
+  <br>
+  {{result}}
+</form>
