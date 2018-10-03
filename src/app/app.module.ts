@@ -1,3 +1,4 @@
+import { ProductService } from '.src/app/services/product.services.ts';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -65,7 +66,8 @@ import { UseObjectAndObjectListComponent } from './service/use-object-and-object
     FormControl,
     FormGroup
   ],
-  providers: [MathService],
+  providers: [MathService,
+    ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
