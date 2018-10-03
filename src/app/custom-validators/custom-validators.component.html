@@ -1,0 +1,131 @@
+<p>
+  custom-validators works!
+</p>
+
+<h3>Register form</h3>
+
+<form [formGroup]="registerForm" (ngSubmit)="save()">
+
+  <table>
+  <tr>
+  <td> Username</td>
+  <td>
+        <input type="text" formControlName="username">
+  </td>
+  <td>
+
+  <div *ngIf="registrationForm.get('username').touched">
+  <div *ngIf="registrationForm.hasError('required',['username'])">
+    This field is required
+  </div>
+
+   <div *ngIf="registrationForm.hasError('minLength',['username'])">
+    Please enter 3 character
+  </div>
+
+   <div *ngIf="registrationForm.hasError('maxLength',['username'])">
+    Please enter no more than 10 characters
+  </div>
+  </div>
+
+  </td>
+  </tr>
+
+
+  <tr>
+  <td>Password</td>
+  <td>
+        <input type="password" formControlName="password">
+  </td>
+  <td>
+
+  <div *ngIf="registrationForm.get('password').touched">
+  <div *ngIf="registrationForm.hasError('required',['password'])">
+    This field is required
+  </div>
+
+   <div *ngIf="registrationForm.hasError('pattern',['username'])">
+  Your password does not meet the critera and complexity
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+
+  <tr>
+  <td>Age</td>
+  <td>
+        <input type="number" formControlName="age">
+  </td>
+  <td>
+
+  <div *ngIf="registrationForm.get('age').touched">
+  <div *ngIf="registrationForm.hasError('min',['age'])">
+please enter a value greater than or equal to 18  </div>
+
+   <div *ngIf="registrationForm.hasError('max',['age'])">
+  Please enter a value less than or equal to 120
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+
+  <tr>
+  <td>Email</td>
+  <td>
+        <input type="text" formControlName="email">
+  </td>
+  <td>
+
+  <div *ngIf="registrationForm.get('email').touched">
+  <div *ngIf="registrationForm.hasError('required',['email'])">
+    This field is required
+  </div>
+
+   <div *ngIf="registrationForm.hasError('pattern',['email'])">
+  Your password does not meet the critera and complexity
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+    <tr>
+  <td>website</td>
+  <td>
+        <input type="text" formControlName="website">
+  </td>
+  <td>
+
+  <div *ngIf="registrationForm.get('website').touched">
+
+   <div *ngIf="registrationForm.hasError('pattern',['website'])">
+
+  please enter a valid url
+
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+    <tr>
+  <td>&nbsp</td>
+  <td>
+        <input type="submit" value="Save" [disabled]="registrationForm.invalid">
+  </td>
+
+  </tr>
+
+
+
+  </table>
+
+</form>

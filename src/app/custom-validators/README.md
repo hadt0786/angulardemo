@@ -1,40 +1,95 @@
-## Forms Validation EVENT IN ANGULAR
+## Custom Form Validators IN ANGULAR
 
 #### INSTALL ANGULAR
 
     `npm instal -g @angular/cli`
 
-#### Create Component `ng g c forms-validation`
+#### Create Custom Validators
 
-1.  Inside `src/app/forms-validation/forms-validation.component.ts`
+1.  Create a new folder `validators` in `src/app` folder. In this folder create custom validators as below
+
+2.  **MAX VALIDATORS**
+
+    ---- in `src/app/validators` create a `max.validators.ts`
+    cli - `ng g class validators`
+
+```
+
+import { AbstractControl, ValidatorFn } from '@angular/forms';
+
+export function max (value: Number): ValidatorFn {
+
+  return (control: AbstractControl): {
+    [key: string]: any} => {
+      const input = control.value, isValid = input > value;
+      if (isValid) {
+        // tslint:disable-next-line:no-unused-expression
+        return {'max' : {value } };
+      } else {
+        return null;
+      }
+    };
+  }
+```
+
+3.  **MIN VALIDATOR**
+
+Create a new file, named `min.validators.ts` in `src/app/validators`
+cli - `ng g class validators`
+
+```
+
+import { AbstractControl, ValidatorFn } from '@angular/forms';
+
+export function min (value: Number): ValidatorFn {
+
+  return (control: AbstractControl): {
+    [key: string]: any} => {
+      const input = control.value, isValid = input < value;
+      if (isValid) {
+        // tslint:disable-next-line:no-unused-expression
+        return {'min' : {value } };
+      } else {
+        return null;
+      }
+    };
+  }
+
+```
+
+#### Create Component `ng g c custom-validation`
+
+1.  Inside `src/app/custom-validation/custom-validation.component.ts`
 
 
     ```
-    import { Component, OnInit } from '@angular/core';
-    import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { max } from '../validators/max.validators';
+import { min } from '../validators/min.validator';
+import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 
 
 
-    @Component ({
-      selector : 'app-forms-validation',
-      templateUrl: './../forms-validation/forms-validation.component.html'
-    })
+@Component({
+  selector: 'app-custom-validators',
+  templateUrl: './custom-Validators.component.html',
+  styleUrls: ['./custom-Validators.component.css']
+})
+export class CustomValidatorsComponent implements OnInit {
 
-    export class FormsVidationComponent Implements OnInit {
-
-      registerForm: FormGroup;
+  registerForm: FormGroup;
 
       constructor (private formBuilder: FormBuilder){
 
       }
 
 
-      ngOnInit(){
+      ngOnInit() {
         this.registerForm = this.formBuilder.group({
           username:
           ['',
             [
-            Validators.required, Validator.minLnegth(3),
+            Validators.required, Validators.minLength(3),
             Validators.maxLength(10)
             ]
           ],
@@ -42,38 +97,50 @@
           password:
           [
             '',
-            Validators.required,
+            [Validators.required,
             Validators.pattern(
-              '^((?=.*[0-9])(?=.[a-z])(?=.*[@#$%]).{6,20}$')]]
-              );
+              '^((?=.*[0-9])(?=.[a-z])(?=.*[@#$%]).{6,20}$')
+            ]
+          ],
+
+          age:
+          [
+            0,
+            [
+              min(18),
+              max(120)
+            ]
           ],
 
           email:
           [
             '',
+            [
             Validators.required,
             Validators.pattern(
-              /\w+([-+.]\w+)*@w+([-,]\w+)*/)]]
-              )
+              /\w+([-+.]\w+)*@w+([-,]\w+)*/)
+            ]
           ],
 
           website:
           [
             '',
             Validators.pattern(
-              /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/)]])
-          ],
+              /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/)
+            ],
           });
 
       }
-      save(): void{
+      save(): void {
         console.log('Account Info');
-        console.log('Username : '+this.registerForm.value.username);
-        console.log('Password : '+this.registerForm.value.password);
-        console.log('Email    : '+this.registerForm.value.email);
-        console.log('Website  : '+this.registerForm.value.website);
+        console.log('Username : ' + this.registerForm.value.username);
+        console.log('Password : ' + this.registerForm.value.password);
+        console.log('Age : ' + this.registerForm.value.age);
+        console.log('Email    : ' + this.registerForm.value.email);
+        console.log('Website  : ' + this.registerForm.value.website);
 
     }
+  }
     ```
 
 #### Creating A **View**
@@ -144,6 +211,28 @@ import { FormGroup, FormControl, ReactiveModule } from '@angular/forms';
   </td>
   </tr>
 
+
+  <tr>
+  <td>Age</td>
+  <td>
+        <input type="number" formControlName="age">
+  </td>
+  <td>
+
+  <div *ngIf="registrationForm.get('age').touched">
+  <div *ngIf="registrationForm.hasError('min',['age'])">
+please enter a value greater than or equal to 18  </div>
+
+   <div *ngIf="registrationForm.hasError('max',['age'])">
+  Please enter a value less than or equal to 120
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+
   <tr>
   <td>Email</td>
   <td>
@@ -200,7 +289,6 @@ import { FormGroup, FormControl, ReactiveModule } from '@angular/forms';
 </form>
 ```
 
-
 #### Add Component to `app.module.ts`
 
 ```
@@ -239,4 +327,3 @@ import { FormGroup, FormControl, ReactiveModule } from '@angular/forms';
 #### Run the Application
 
 `ng s -o`
-

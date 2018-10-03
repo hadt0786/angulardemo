@@ -1,3 +1,109 @@
 <p>
   form-validation works!
 </p>
+
+<h3>Register form</h3>
+
+<form [formGroup]="registerForm" (ngSubmit)="save()">
+
+  <table>
+  <tr>
+  <td> Username</td>
+  <td>
+        <input type="text" formControlName="username">
+  </td>
+  <td>
+
+  <div *ngIf="registerForm.get('username').touched">
+  <div *ngIf="registerForm.hasError('required',['username'])">
+    This field is required
+  </div>
+
+   <div *ngIf="registerForm.hasError('minLength',['username'])">
+    Please enter 3 character
+  </div>
+
+   <div *ngIf="registerForm.hasError('maxLength',['username'])">
+    Please enter no more than 10 characters
+  </div>
+  </div>
+
+  </td>
+  </tr>
+
+
+  <tr>
+  <td>Password</td>
+  <td>
+        <input type="password" formControlName="password">
+  </td>
+  <td>
+
+  <div *ngIf="registerForm.get('password').touched">
+  <div *ngIf="registerForm.hasError('required',['password'])">
+    This field is required
+  </div>
+
+   <div *ngIf="registerForm.hasError('pattern',['username'])">
+  Your password does not meet the critera and complexity
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+  <tr>
+  <td>Email</td>
+  <td>
+        <input type="text" formControlName="email">
+  </td>
+  <td>
+
+  <div *ngIf="registerForm.get('email').touched">
+  <div *ngIf="registerForm.hasError('required',['email'])">
+    This field is required
+  </div>
+
+   <div *ngIf="registerForm.hasError('pattern',['email'])">
+  Your password does not meet the critera and complexity
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+    <tr>
+  <td>website</td>
+  <td>
+        <input type="text" formControlName="website">
+  </td>
+  <td>
+
+  <div *ngIf="registerForm.get('website').touched">
+
+   <div *ngIf="registerForm.hasError('pattern',['website'])">
+
+  please enter a valid url
+
+  </div>
+
+  </div>
+
+  </td>
+  </tr>
+
+    <tr>
+  <td>&nbsp</td>
+  <td>
+        <input type="submit" value="Save" [disabled]="registerForm.invalid">
+  </td>
+
+  </tr>
+
+
+
+  </table>
+
+</form>

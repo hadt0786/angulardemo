@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
@@ -6,6 +7,9 @@ import {
   FormGroup,
   ReactiveFormsModule
 } from '@angular/forms';
+
+
+import { MathService } from './services/math.service';
 
 import { AppComponent } from './app.component';
 import { PassValuesFromComponentToViewComponent } from './pass-values-from-component-to-view/pass-values-from-component-to-view.component';
@@ -25,6 +29,12 @@ import { TwoWayDatabindingComponent } from './Databindin/two-way-databinding/two
 import { OneWayDatabindingComponent } from './Databindin/one-way-databinding/one-way-databinding.component';
 import { FormsControlComponent } from './forms-control/forms-control.component';
 import { FormValidationComponent } from './form-validation/form-validation.component';
+import { CustomValidatorsComponent } from './custom-validators/custom-validators.component';
+import { CreateAndUseServiceComponent } from './service/create-and-use-service/create-and-use-service.component';
+import { UseObjectAndObjectListComponent } from './service/use-object-and-object-list/use-object-and-object-list.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -43,7 +53,10 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
     TwoWayDatabindingComponent,
     OneWayDatabindingComponent,
     FormsControlComponent,
-    FormValidationComponent
+    FormValidationComponent,
+    CustomValidatorsComponent,
+    CreateAndUseServiceComponent,
+    UseObjectAndObjectListComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +65,7 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
     FormControl,
     FormGroup
   ],
-  providers: [],
+  providers: [MathService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
