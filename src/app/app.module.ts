@@ -1,4 +1,4 @@
-import { ProductService } from '.src/app/services/product.services.ts';
+import { ProductService } from './services/product.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
