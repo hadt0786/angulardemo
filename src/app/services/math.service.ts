@@ -14,5 +14,8 @@ export class MathService {
   multiplication(a: number, b: number) {
     return a * b;
   }
+  multiply(a: number, b: number) {
+    return a * b;
+  }
 
 }

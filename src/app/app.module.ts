@@ -33,6 +33,13 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
 import { CustomValidatorsComponent } from './custom-validators/custom-validators.component';
 import { CreateAndUseServiceComponent } from './service/create-and-use-service/create-and-use-service.component';
 import { UseObjectAndObjectListComponent } from './service/use-object-and-object-list/use-object-and-object-list.component';
+import { CallAServiceFromAnotherServiceComponent } from './call-a-service-from-another-service/call-a-service-from-another-service.component';
+import { CalculatorService } from './services/calculator.service';
+import { BuildTemplateWithRoutingAndNavigationComponent } from './routing-and-navigation/build-template-with-routing-and-navigation/build-template-with-routing-and-navigation.component';
+import { HomeComponent } from './routing-and-navigation/children/home/home.component';
+import { AboutUsComponent } from './routing-and-navigation/children/about-us/about-us.component';
+import { NewsComponent } from './routing-and-navigation/children/news/news.component';
+import { MainComponent } from './routing-and-navigation/main/main.component';
 
 
 
@@ -57,7 +64,13 @@ import { UseObjectAndObjectListComponent } from './service/use-object-and-object
     FormValidationComponent,
     CustomValidatorsComponent,
     CreateAndUseServiceComponent,
-    UseObjectAndObjectListComponent
+    UseObjectAndObjectListComponent,
+    CallAServiceFromAnotherServiceComponent,
+    BuildTemplateWithRoutingAndNavigationComponent,
+    HomeComponent,
+    AboutUsComponent,
+    NewsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +79,11 @@ import { UseObjectAndObjectListComponent } from './service/use-object-and-object
     FormControl,
     FormGroup
   ],
-  providers: [MathService,
-    ProductService],
+  providers: [
+    MathService,
+    ProductService,
+    CalculatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
