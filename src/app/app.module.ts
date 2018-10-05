@@ -40,6 +40,9 @@ import { HomeComponent } from './routing-and-navigation/children/home/home.compo
 import { AboutUsComponent } from './routing-and-navigation/children/about-us/about-us.component';
 import { NewsComponent } from './routing-and-navigation/children/news/news.component';
 import { MainComponent } from './routing-and-navigation/main/main.component';
+import { AboutusComponent } from './routing-and-navigation/aboutus/aboutus.component';
+import { Menu1Component } from './routing-and-navigation/aboutus/components/menu1/menu1.component';
+import { Menu2Component } from './routing-and-navigation/aboutus/components/menu2/menu2.component';
 
 
 
@@ -70,7 +73,10 @@ import { MainComponent } from './routing-and-navigation/main/main.component';
     HomeComponent,
     AboutUsComponent,
     NewsComponent,
-    MainComponent
+    MainComponent,
+    AboutusComponent,
+    Menu1Component,
+    Menu2Component
   ],
   imports: [
     BrowserModule,
