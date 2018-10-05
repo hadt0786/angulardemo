@@ -43,6 +43,13 @@ import { MainComponent } from './routing-and-navigation/main/main.component';
 import { AboutusComponent } from './routing-and-navigation/aboutus/aboutus.component';
 import { Menu1Component } from './routing-and-navigation/aboutus/components/menu1/menu1.component';
 import { Menu2Component } from './routing-and-navigation/aboutus/components/menu2/menu2.component';
+import { RouteParametersComponent } from './routing-and-navigation/route-parameters/route-parameters.component';
+import { MoreparametersComponent } from './routing-and-navigation/route-parameters/components/moreparameters/moreparameters.component';
+import { OneparameterComponent } from './routing-and-navigation/route-parameters/components/oneparameter/oneparameter.component';
+import { DynamicComponentsComponent } from './dynamic-components/dynamic-components.component';
+import { GoodbyeComponent } from './Dynamic-Components/goodbye/goodbye.component';
+import { HiComponent } from './Dynamic-Components/hi/hi.component';
+import { HelloComponent } from './Dynamic-Components/hello/hello.component';
 
 
 
@@ -76,7 +83,14 @@ import { Menu2Component } from './routing-and-navigation/aboutus/components/menu
     MainComponent,
     AboutusComponent,
     Menu1Component,
-    Menu2Component
+    Menu2Component,
+    RouteParametersComponent,
+    MoreparametersComponent,
+    OneparameterComponent,
+    DynamicComponentsComponent,
+    GoodbyeComponent,
+    HiComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,

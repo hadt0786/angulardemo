@@ -338,6 +338,7 @@ bootstrap:[AppComponent]
 
 export class AppModule { }
 ```
+
 ## Include the selector tag in the `app.component.html`
 
 ## Run The Application
