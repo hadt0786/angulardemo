@@ -51,6 +51,7 @@ import { GoodbyeComponent } from './Dynamic-Components/goodbye/goodbye.component
 import { HiComponent } from './Dynamic-Components/hi/hi.component';
 import { HelloComponent } from './Dynamic-Components/hello/hello.component';
 import { StringNullChecksComponent } from './string-null-checks/string-null-checks.component';
+import { NgIfElseComponent } from './ng-if-else/ng-if-else.component';
 
 
 
@@ -92,7 +93,8 @@ import { StringNullChecksComponent } from './string-null-checks/string-null-chec
     GoodbyeComponent,
     HiComponent,
     HelloComponent,
-    StringNullChecksComponent
+    StringNullChecksComponent,
+    NgIfElseComponent
   ],
   imports: [
     BrowserModule,
