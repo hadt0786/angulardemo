@@ -155,8 +155,53 @@ export class AppComponent implements OnInit {
 <ng-container *ngComponentOutlet = "say"></ng-container>
 
 <button (click)="sayHi()"> Say Hi </button>
+<button (click)="sayHello()"> Say Hello </button>
+<button (click)="sayGoodBye()"> Say GoodBye </button>
+```
 
+## Add Component to Module
 
-
+`app.module.ts` in `src/app`
 
 ```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { HiComponent } from './components/hi/hi.component';
+import { HelloComponent } from './components/hello/hello.component';
+import { GoodByeComponent } from './components/goodbye/goodbye.component';
+
+@NgModule({
+declarations;[
+  AppComponet,
+  HiComponent,
+  HelloComponent,
+  GoodByeComponent
+],
+
+entryComponents : [
+  HiComponent,
+  HelloComponent,
+  GoodByeComponent
+],
+
+imports:[
+  BrowserModule
+],
+providers:[
+
+],
+
+bootstrao:[
+  AppComponent
+]
+
+})
+
+export class AppModule { }
+```
+
+## Run Application
+
+`ng s -o`

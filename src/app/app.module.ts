@@ -50,6 +50,7 @@ import { DynamicComponentsComponent } from './dynamic-components/dynamic-compone
 import { GoodbyeComponent } from './Dynamic-Components/goodbye/goodbye.component';
 import { HiComponent } from './Dynamic-Components/hi/hi.component';
 import { HelloComponent } from './Dynamic-Components/hello/hello.component';
+import { StringNullChecksComponent } from './string-null-checks/string-null-checks.component';
 
 
 
@@ -90,7 +91,8 @@ import { HelloComponent } from './Dynamic-Components/hello/hello.component';
     DynamicComponentsComponent,
     GoodbyeComponent,
     HiComponent,
-    HelloComponent
+    HelloComponent,
+    StringNullChecksComponent
   ],
   imports: [
     BrowserModule,
