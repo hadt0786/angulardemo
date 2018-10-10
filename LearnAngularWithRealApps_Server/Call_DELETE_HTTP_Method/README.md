@@ -1,6 +1,6 @@
 # MEAN APPLICATION
 
-## Call POST HTTP Method with Express.JS WebApi and MongoDb
+## Call DELETE HTTP Method with Express.JS WebApi and MongoDb
 
 ### Structure of Server Project
 
@@ -257,6 +257,10 @@ server.js
 }
 ```
 
+### ru the API Server
+
+`node server.js`
+
 # Create A Client Project
 
 Install the Angular
@@ -304,17 +308,11 @@ export class ProductService {
 
   }
 
-  create(product: Product){
-    let header= new Headers({
-      'Content-Type','application/json'
-    });
-
-    let options = new requestOptions({header: headers});
-
-    let body = JSON.stringify(product);
-
-    return this.http.put(this.BASE_URL+'update', body, options)
-                    .map((res: Response)=>res.json());
+  delete(id: string){
+    return this.http.delete(this.BASE_URL+'delete/'+id)
+                .map((res: Response)=>{
+                  res.json()
+                });
   }
 
 
@@ -356,10 +354,11 @@ export class AppComponent implements OnInit {
     });
   }
 
-  save(event: any){
-    this.productService.update(this.productForm.value).subscribe(data => {
-      alert("SUCCESS");
+  delete(event: any){
+    this.productService.delete(this.productForm.value._id).subscribe(data=>{
+      alert("Success");
     });
+  }
   }
 }
 ```
@@ -371,9 +370,9 @@ export class AppComponent implements OnInit {
 In this view, show product list from view
 
 ```
-<h3> Add Product List </h3>
+<h3> Delete Product </h3>
 
-<form [formGroup]="productForm" (ngSubmit)="save($event)">
+<form [formGroup]="productForm" (ngSubmit)="delete($event)">
 
 <table>
 
@@ -387,43 +386,6 @@ In this view, show product list from view
 </tr>
 
 
-<tr>
-
-<td> Name </td>
-
-<td><input formControlName="name" type="text" required="required"> </td>
-
-
-</tr>
-
-<tr>
-
-<td> Price </td>
-
-<td><input formControlName="price" type="number" required="required"> </td>
-
-
-</tr>
-
-<tr>
-
-<td> Quantity </td>
-
-<td><input formControlName="quantity" type="number" required="required"> </td>
-
-
-</tr>
-
-<tr>
-
-<td> Status </td>
-
-<td><input formControlName="status" type="checkbox"> </td>
-
-
-</tr>
-
-<tr>
 
 <td> &nbsp </td>
 
